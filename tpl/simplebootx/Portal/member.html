@@ -1,0 +1,394 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta charset="UTF-8">
+	<title>{$name}┊{$site_name}</title>
+    <meta http-equiv="Content-Language" content="ar-AE">
+    <meta name="author" content="Powerless"> 
+    <meta name="Copyright" content="{$site_seo_title}">
+	<meta name="keywords" content="{$site_seo_keywords}" />
+	<meta name="description" content="{$site_seo_description}">
+<link href="__TMPL__Public/style/member.css" rel="stylesheet" type="text/css"/>
+<link href="__TMPL__Public/style/member_js.css" type="text/css" rel="stylesheet" />
+<link href="__TMPL__Public/style/member_common.css" rel="stylesheet" type="text/css" />
+<link href="__TMPL__Public/style/member_lunbo.css" rel="stylesheet" type="text/css" />
+<link rel="icon" href="__TMPL__Public/images/favicon.ico" type="image/ico">
+<script type="text/javascript" src="__TMPL__Public/js/con_js.js"></script>
+<script type="text/javascript" src="__TMPL__Public/js/jquery-1.4.2.js"></script>
+<script language="javascript">
+<!--
+//图片滚动列表 mengjia 070927
+var Speed_1 = 10; //速度(毫秒)
+var Space_1 = 20; //每次移动(px)
+var PageWidth_1 = 116 * 3; //翻页宽度
+var interval_1 = 7000; //翻页间隔
+var fill_1 = 0; //整体移位
+var MoveLock_1 = false;
+var MoveTimeObj_1;
+var MoveWay_1="right";
+var Comp_1 = 0;
+var AutoPlayObj_1=null;
+function GetObj(objName){if(document.getElementById){return eval('document.getElementById("'+objName+'")')}else{return eval('document.all.'+objName)}}
+function AutoPlay_1(){clearInterval(AutoPlayObj_1);AutoPlayObj_1=setInterval('ISL_GoDown_1();ISL_StopDown_1();',interval_1)}
+function ISL_GoUp_1(){if(MoveLock_1)return;clearInterval(AutoPlayObj_1);MoveLock_1=true;MoveWay_1="left";MoveTimeObj_1=setInterval('ISL_ScrUp_1();',Speed_1);}
+function ISL_StopUp_1(){if(MoveWay_1 == "right"){return};clearInterval(MoveTimeObj_1);if((GetObj('ISL_Cont_1').scrollLeft-fill_1)%PageWidth_1!=0){Comp_1=fill_1-(GetObj('ISL_Cont_1').scrollLeft%PageWidth_1);CompScr_1()}else{MoveLock_1=false}
+AutoPlay_1()}
+function ISL_ScrUp_1(){if(GetObj('ISL_Cont_1').scrollLeft<=0){GetObj('ISL_Cont_1').scrollLeft=GetObj('ISL_Cont_1').scrollLeft+GetObj('List1_1').offsetWidth}
+GetObj('ISL_Cont_1').scrollLeft-=Space_1}
+function ISL_GoDown_1(){clearInterval(MoveTimeObj_1);if(MoveLock_1)return;clearInterval(AutoPlayObj_1);MoveLock_1=true;MoveWay_1="right";ISL_ScrDown_1();MoveTimeObj_1=setInterval('ISL_ScrDown_1()',Speed_1)}
+function ISL_StopDown_1(){if(MoveWay_1 == "left"){return};clearInterval(MoveTimeObj_1);if(GetObj('ISL_Cont_1').scrollLeft%PageWidth_1-(fill_1>=0?fill_1:fill_1+1)!=0){Comp_1=PageWidth_1-GetObj('ISL_Cont_1').scrollLeft%PageWidth_1+fill_1;CompScr_1()}else{MoveLock_1=false}
+AutoPlay_1()}
+function ISL_ScrDown_1(){if(GetObj('ISL_Cont_1').scrollLeft>=GetObj('List1_1').scrollWidth){GetObj('ISL_Cont_1').scrollLeft=GetObj('ISL_Cont_1').scrollLeft-GetObj('List1_1').scrollWidth}
+GetObj('ISL_Cont_1').scrollLeft+=Space_1}
+function CompScr_1(){if(Comp_1==0){MoveLock_1=false;return}
+var num,TempSpeed=Speed_1,TempSpace=Space_1;if(Math.abs(Comp_1)<PageWidth_1/2){TempSpace=Math.round(Math.abs(Comp_1/Space_1));if(TempSpace<1){TempSpace=1}}
+if(Comp_1<0){if(Comp_1<-TempSpace){Comp_1+=TempSpace;num=TempSpace}else{num=-Comp_1;Comp_1=0}
+GetObj('ISL_Cont_1').scrollLeft-=num;setTimeout('CompScr_1()',TempSpeed)}else{if(Comp_1>TempSpace){Comp_1-=TempSpace;num=TempSpace}else{num=Comp_1;Comp_1=0}
+GetObj('ISL_Cont_1').scrollLeft+=num;setTimeout('CompScr_1()',TempSpeed)}}
+function picrun_ini(){
+GetObj("List2_1").innerHTML=GetObj("List1_1").innerHTML;
+GetObj('ISL_Cont_1').scrollLeft=fill_1>=0?fill_1:GetObj('List1_1').scrollWidth-Math.abs(fill_1);
+GetObj("ISL_Cont_1").onmouseover=function(){clearInterval(AutoPlayObj_1)}
+GetObj("ISL_Cont_1").onmouseout=function(){AutoPlay_1()}
+AutoPlay_1();
+}
+//产品展示滚动图片结束
+//-->
+</script>
+<style type="text/css">
+<!--
+BODY {
+ BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; FONT-SIZE: 12px; BORDER-BOTTOM-WIDTH: 0px; MARGIN: 0px; FONT-FAMILY: 宋体; BACKGROUND-COLOR: #fff; BORDER-RIGHT-WIDTH: 0px
+}
+.blk_18 {
+ BORDER-RIGHT: #e3e3e3 1px solid; BORDER-TOP: #e3e3e3 1px solid; MARGIN-TOP: 8px; FONT-SIZE: 12px; BACKGROUND: #f3f3f3; OVERFLOW: hidden; BORDER-LEFT: #e3e3e3 1px solid; WIDTH: 610px; BORDER-BOTTOM: #e3e3e3 1px solid; ZOOM: 1
+}
+.blk_18 .pcont {
+ FLOAT: left; OVERFLOW: hidden; WIDTH: 570px
+}
+.blk_18 .ScrCont {
+ WIDTH: 32766px; ZOOM: 1
+}
+.blk_18 #List1_1 {
+ FLOAT: left
+}
+.blk_18 #List2_1 {
+ FLOAT: left
+}
+.blk_18 .LeftBotton {
+ BACKGROUND: url(__TMPL__Public/img/picr_1.gif) no-repeat; FLOAT: left; MARGIN: 10px 1px; WIDTH: 15px; HEIGHT: 72px
+}
+.blk_18 .RightBotton {
+ BACKGROUND: url(__TMPL__Public/img/picr_1.gif) no-repeat; FLOAT: right; MARGIN: 10px 1px; WIDTH: 15px; HEIGHT: 72px
+}
+.blk_18 .LeftBotton {
+ BACKGROUND-POSITION: 0px 0px; MARGIN-LEFT: 5px
+}
+.blk_18 .RightBotton {
+ BACKGROUND-POSITION: 0px -100px; MARGIN-LEFT: -1px
+}
+.blk_18 .LeftBotton:hover {
+ BACKGROUND-POSITION: -20px 0px
+}
+.blk_18 .RightBotton:hover {
+ BACKGROUND-POSITION: -20px -100px
+}
+.blk_18 .pl IMG {
+ DISPLAY: block; MARGIN: 6px auto 1px; CURSOR: pointer; BORDER-TOP-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-LEFT-STYLE: none; BORDER-BOTTOM-STYLE: none
+}
+.blk_18 .pl {
+ BORDER-RIGHT: #f3f3f3 1px solid; BORDER-TOP: #f3f3f3 1px solid; FLOAT: left; BORDER-LEFT: #f3f3f3 1px solid; WIDTH: 114px; LINE-HEIGHT: 24px; BORDER-BOTTOM: #f3f3f3 1px solid; TEXT-ALIGN: center; TEXT-DECORATION: underline
+}
+.blk_18 A.pl:hover {
+ BORDER-RIGHT: #ff9900 1px solid; BORDER-TOP: #ff9900 1px solid; BACKGROUND: #fff; BORDER-LEFT: #ff9900 1px solid; COLOR: #ff9900; BORDER-BOTTOM: #ff9900 1px solid
+}
+.commu_cont3 {
+ MARGIN: 9px 7px 7px; LINE-HEIGHT: 170%
+}
+.commu_cont3 UL {
+ WIDTH: 188px;
+}
+-->
+</style>
+        <script type="text/javascript" language="javascript">  
+        function nofind(){
+        var img=event.srcElement;
+        img.src="__TMPL__Public/images/no-img.jpg";
+        img.onerror=null; 
+        }
+        </script>
+</head>
+<body>
+<!--nav_start-->
+<div id="top_navbg">
+    <div class="wrapper">
+    <ul class="top_navtext">
+		<li><a href="{:u('list/index',array('id'=>57))}">الأخبار</a></li>
+		<li><a href="{:u('list/index',array('id'=>58))}">العروض</a></li>
+		<li><a href="{:u('list/index',array('id'=>59))}">الجماعة</a></li>
+		<li><a href="{:u('list/index',array('id'=>60))}">الشخصيات الهامة</a></li>
+		<li><a href="{:u('list/index',array('id'=>61))}">التعليمات</a></li>
+		<li><a href="{:u('list/index',array('id'=>62))}">المراجعة</a></li>
+
+	</ul>
+	<span class="top_logobg">
+    
+		<php>
+            $trade_t=sp_getslide('trade_t');
+        </php>
+        <foreach name="trade_t" item="t"><php>break;</php></foreach>
+        <img  onerror="nofind();" src="{$site_host}data/upload/{$t.slide_pic}" alt="{$t.slide_name}"  width="960" height="94"/></span>
+	</div>
+</div>
+<!--内容开始-->
+<div class="content_Gaobodybg wrapper">
+	  <!--js开始-->
+		<div class="focus_img">
+		  <div class="big_area">
+			<div class="big_img" id="con_1"></div>
+			<div class="titlebg"></div>
+			<h3 id="h2title"></h3>
+			<div id="intro" style="dispaly:none;"></div>
+		  </div>
+		  <div class="thurmb" id="con_2"></div>
+		</div>
+		<!--focus_img end-->
+			<script type="text/javascript"> 
+			var focusImg= new FocusImg();
+			focusImg.bigDiv="con_1";
+			focusImg.smallDiv="con_2";
+			focusImg.imgW=418;
+			focusImg.imgH=278;
+			focusImg.sTime=5000;
+			focusImg.titleDiv="h2title";
+			focusImg.introDiv="intro";
+			 
+			  <php>
+            $news_all=sp_sql_posts('cid:57;field:tid,post_title,post_excerpt,smeta;limit:4;order:post_date desc');
+            </php>
+            <foreach name = 'news_all' item = 'all'>
+                <php>
+                $smeta=json_decode($all['smeta'],true);
+                </php>
+			var s = {};
+			s.bigimg="{$site_host}data/upload/{$smeta.thumb}";
+			s.title="{$all.post_title}";
+			s.intro="<span>{$all.post_excerpt}</span>";
+			s.url="{:U('article/index',array('id'=>$all['tid']))}";
+			focusImg.imgList.push(s);
+            </foreach>
+			
+			 
+			focusImg.init();
+			focusImg.autoPlay();
+			</script>
+	  <!--js结束--> 
+	<div class="con_wenimage">
+	    <div class="con_leftwen">
+		<dl> 
+			 <php>
+            $exhibition_all=sp_sql_posts('cid:58;field:tid,post_title,smeta;limit:4;order:post_date desc');
+            </php>
+            <foreach name = 'exhibition_all' item = 'all'>
+                <php>
+                $smeta=json_decode($all['smeta'],true);
+                </php>
+              <dt><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></dt>	  
+              <dd><img onerror="nofind();"src="{$site_host}data/upload/{$smeta.thumb}" width="100" height="100"></dd>
+            </foreach>
+		</dl>
+		</div>
+	</div> 
+</div>
+<!--轮播效果-->
+<div class="con_boimage wrapper">
+  <!--lunbostart-->
+<div id="wrappera">
+  <div id="up">
+    <div class="words"><a href="{:u('list/index',array('id'=>59))}">الجماعة</a></div>
+  </div>
+  <div id="down">
+    <div id="downContent">
+      <ul>
+        <php>
+        $community_all=sp_sql_posts('cid:59;field:tid,smeta;limit:7;order:post_date desc');
+        </php>
+        <foreach name = 'community_all' item = 'all'>
+            <php>
+            $smeta=json_decode($all['smeta'],true);
+            </php>
+        	<li><a href="{:U('article/index',array('id'=>$all['tid']))}">
+            <img onerror="nofind();"src="{$site_host}data/upload/{$smeta.thumb}" width="133" height="117" />
+            </a></li>
+        </foreach>
+      </ul>
+    </div>
+  </div>
+</div>
+</div> 
+<!--左右文字图-->
+<div class="con_LRwenzitu wrapper">
+    <div class="con_leftwtbg">
+		<ul class="con_leftnvbg">
+		   <li class="aaa"><a href="{:u('list/index',array('id'=>60))}">الشخصيات الهامة</a></li>
+		</ul>
+		<ul class="con_leftpic">
+        
+        <php>
+        $vip_all=sp_sql_posts('cid:60;field:tid,post_title,post_excerpt,smeta;limit:3;order:post_date desc');
+        </php>
+        <foreach name = 'vip_all' item = 'all'>
+            <php>
+            $smeta=json_decode($all['smeta'],true);
+            </php>
+        	<li><a href="{:U('article/index',array('id'=>$all['tid']))}">
+            <img onerror="nofind();"src="{$site_host}data/upload/{$smeta.thumb}" width="329" height="244" />
+            </a></li>
+        </foreach>
+        </ul>		
+	</div>
+	<div class="con_rightbg">
+	    <ul class="con_rightnvbg">
+		 <li class=""><a href="{:u('list/index',array('id'=>61))}">التعليمات</a></li>
+		</ul>
+         <php>
+        $faq_all=sp_sql_posts('cid:61;field:tid,post_title,post_excerpt,smeta;limit:9;order:post_date desc');
+        $a = 0;
+        </php>
+        <foreach name="faq_all" item="all">
+        <php>
+        $a++;
+        $smeta=json_decode($all['smeta'],true);
+        if($a == 1)
+        {
+        </php>
+        <div class="con_rightnvNbg">
+		   <dl class="con_rightnvNbg1a">
+		     <dt><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></dt>
+			 <dd><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="182" height="150"></dd>
+		   </dl>
+		</div>
+        		
+        <div class="con_rightnvNbg2">
+		   <div class="con_rightnvNbg2a">
+            <php>
+            }
+            if($a > 1){
+            </php>
+            
+		    <dl>
+                <dt><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_excerpt}</a></dt>
+			  	<dt><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}" width="137" height="128"/></dt>
+			</dl>
+            
+            <php>
+            }
+            </php>
+        </foreach>
+        
+		   </div>
+		</div>	
+
+    </div>		
+</div>
+<!--滑动文字-->
+<div class="con_HDwenzitubg wrapper">
+   <div class="con_lefthdbg">
+	  <div class="con_lefthdwenbg1">
+      <php>
+            $feedback_all=sp_sql_posts('cid:62;field:tid,post_title;limit:6;order:post_date desc');
+            </php>
+            <foreach name = 'feedback_all' item = 'all'>
+          <div class="con_lefthdwenbg" onmouseover="this.style.backgroundColor='#F4F9FD'" onmouseout="this.style.backgroundColor='#bab7b7'">
+            <dl>
+              <dt><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></dt>
+            </dl>
+          </div>
+            </foreach>
+	  	  
+	  </div>
+   </div>
+   <div class="con_rightsnavbg">
+       <div class="con_rightnvbgsa">
+	     <div class="con_rightnvbgsa2">
+	     <ul class="con_rightnvbgsa1">
+		    <li>الأخبار & العروض & الجماعة</li>
+		 </ul>
+		 </div>
+	   </div>
+        <php>
+        $zzs_all=sp_sql_posts('cid:57,58,59;field:tid,post_title,post_excerpt,smeta;limit:16;order:post_date desc');
+        $a = 0;
+        </php>
+        <foreach name="zzs_all" item="all">
+        <php>
+        $a++;
+        $smeta=json_decode($all['smeta'],true);
+        if($a == 1)
+        {
+        </php>
+           <div class="con_righdwent">
+	     <dl>
+		    <dt><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}<br />{$all.post_excerpt}</a></dt>
+			<dd><img onerror="nofind();" src="{$site_host}data/upload/{$smeta.thumb}"  width="368" height="310"></dd>
+		 </dl>
+	   </div>
+        <div class="con_righlbg">
+	     <!--lunbo-->
+        <DIV class="blk_18">
+        <a onmouseup="ISL_StopUp_1()" class="LeftBotton" onmousedown="ISL_GoUp_1()" onmouseout="ISL_StopUp_1()" href="javascript:void(0);" target="_self"></A>
+		<DIV class="pcont" id="ISL_Cont_1">
+		<DIV class="ScrCont">
+		<DIV id="List1_1">
+            <php>
+            }
+            if($a > 1){
+            </php>
+                <A class="pl" href="{:U('article/index',array('id'=>$all['tid']))}">
+                <IMG height="72"  src="{$site_host}data/upload/{$smeta.thumb}" width="96">{$all.post_title}</A>
+            <php>
+            }
+            </php>
+        </foreach>
+	    </DIV>
+		<DIV id="List2_1"></DIV>
+		</DIV>
+		</DIV>
+		<A onmouseup="ISL_StopDown_1()" class="RightBotton" onmousedown="ISL_GoDown_1()" onmouseout="ISL_StopDown_1() href='javascript:void(0);'"
+		 target="_self"></A>
+        </DIV>
+		<SCRIPT type="text/javascript">
+		<!--
+		picrun_ini()
+		//-->
+		</SCRIPT>
+        <!--lunbo-->
+	   </div>
+	   
+   </div>
+</div>
+<!--左右文字图2-->
+<div class="con_LRwenzitu2bg wrapper">
+<div class="con_youwentubg1a">
+<div class="con_youwentubg1aa">
+		<php>
+        $vff_all=sp_sql_posts('cid:60,61,62;field:tid,post_title,smeta;limit:10;order:post_date desc');
+        </php>
+        <foreach name = 'vff_all' item = 'all'>
+            <php>
+            $smeta=json_decode($all['smeta'],true);
+            </php>
+            <ul>
+            <li><img onerror="nofind();"src="{$site_host}data/upload/{$smeta.thumb}" width="151" height="119"></li>
+            <li><a href="{:U('article/index',array('id'=>$all['tid']))}">{$all.post_title}</a></li>
+            </ul>
+        </foreach>
+</div>
+</div>
+</div>
+<!--foot-->
+
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/style/base.css"/>
+  <include file="Public:footer" />
+</body>
+</html>

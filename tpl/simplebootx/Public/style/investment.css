@@ -1,0 +1,189 @@
+/* CSS Document */
+
+.top{ overflow:hidden; margin-bottom:10px;}
+.top dl{ overflow:hidden; float:left;width: 310px;margin: 5px;}
+.top dl dt{ float:left;}
+.top dl dt a img{ width:110px; height:110px;}
+.top dl dd{ float:left; margin-left:10px; width:190px;}
+.top dl dd.dd1{height: 60px;line-height: 20px;font-weight: bold;padding-top: 5px;overflow: hidden;}
+.top dl dd.dd2{ height:40px; line-height:20px; overflow:hidden;}
+.top dl dd.dd2 a{ color:#000;}
+
+.navbg{ background:#3F82B8;}
+.nav{ overflow:hidden; height:60px; line-height:60px;}
+.nav .logo{ float:right;}
+.nav ul{ overflow:hidden;}
+.nav ul li{ float:right;color:#FFF; font-size:20px;margin-left: 33px;}
+.nav ul li a{ color:#FFF;}
+.nav ul li.spe{ padding:0 20px;}
+
+#m1{ width:960px; margin:10px auto; overflow:hidden;}
+.m1l{ float:left; width:724px; overflow:hidden;}
+/*banner*/
+#feature_list{width:724px;height:290px;overflow:hidden;position:relative;margin:0 auto;z-index:1;clear:both;}
+#feature_list ul{position:absolute;top:0;list-style:none;padding:0;margin:0;}
+#feature_tabs{right:0;z-index:2;width:300px;}
+#feature_tabs li{margin:0;padding:20px 13px 0 28px;font-size:13px;font-family:Arial;height:70px;color:#ccc;background:url(../img/feature_tab_bg.png) 0 0 no-repeat;}
+#feature_tabs li:hover{cursor:pointer;}
+#feature_tabs li:last-child{height:107px}
+#feature_tabs li .link-title{color:#ccc;font-size:13px}
+#feature_tabs li .link-more{text-decoration:none;color:#666;font-family:Verdana, Geneva, sans-serif;font-size:12px;}
+#feature_tabs li .link-more:hover{border-bottom:1px dotted #666}
+#feature_tabs li.current{background:url(../img/feature_current.png) 0 0 no-repeat}
+#feature_output{top:0;right:0;width:724px;height:290px;position:relative;margin:0;padding:0;}
+#feature_output li{position:absolute;height:290px;margin:0;}
+#feature_output li a{position:absolute;top:0;left:0;width:433px;height:290px;}
+.feature_cat{text-align:right;padding:10px 0}
+
+.m1lone{ overflow:hidden; margin-top:6px;}
+.m1lone ul{ float:left; width:350px; border:2px solid #ececec; height:100px; padding-top:15px; margin: 0 4px;}
+.m1lone ul li{ padding-left:20px;overflow:hidden; width:320px;}
+.m1lone ul li.li1{ height:60px; line-height:30px;  font-weight:bold; font-size:20px;}
+.m1lone ul li.li1 a{ color:#000;}
+.m1lone ul li.li2{ height:20px; line-height:20px;}
+.m1ltwo{ overflow:hidden; margin-bottom:10px;}
+.m1ltwotit{ background:url(../img/m4bg.jpg) repeat-x; margin:10px 0;}
+.m1ltwotit .zi{ width:190px; height:30px; background:#000; color:#FFF; font-size:20px; text-align:center; line-height:30px;}
+.m1ltwomain{ overflow:hidden;}
+.m1ltwomain dl{ float:left; overflow:hidden; width:158px; margin:0 11px; }
+.m1ltwomain dl dt a img{ width:158px; height:192px;}
+.m1ltwomain dl dd{ height:30px; line-height:30px; font-weight:bold; overflow:hidden;}
+
+/*小banner*/
+#foucsBox { margin: 0 auto; padding: 0; width: 724px; height: 380px; overflow: hidden; zoom: 1; position: relative; }
+    #foucsBox .imgCon { width: 724px; height: 380px; margin: 0; padding: 0; position: relative; list-style: none; }
+        #foucsBox .imgCon li { float: left; width: 724px; height: 380px; }
+            #foucsBox .imgCon li img { border: 0; }
+            #foucsBox .imgCon li .imgTitle { width: 604px; position: absolute; bottom: 35px; text-align: center; z-index: 2; height:30px; line-height:30px; overflow:hidden; margin:0 60px;}
+                #foucsBox .imgCon li .imgTitle a { color: #fff; display: block; text-decoration: none; font-family: "Microsoft Yahei","黑体"; font-weight: normal; font-size: 18px; zoom: 1; }
+    #foucsBox .showPage { width: 724px; height: 70px; position: absolute; bottom: 0; background: #000; opacity: 0.7; filter: alpha(opacity=70); z-index: 1; }
+    #foucsBox .foucs { width: 724px; height: 22px; position: absolute; bottom: 3px; text-align: center; z-index: 3; }
+        #foucsBox .foucs span { display: inline-block; width: 7px; height: 7px; margin: 0 5px; line-height: 0; font-size: 0; background: url(../img/bg.png) -160px -90px no-repeat; cursor: pointer; overflow: hidden; }
+            #foucsBox .foucs span.f { background: url(../img/bg.png) -170px -90px no-repeat; }
+    #foucsBox .foucsButton { width: 40px; height: 56px; padding: 7px; margin-top: -70px; position: relative; z-index: 4; }
+        #foucsBox .foucsButton span { display: inline; width: 23px; height: 45px; margin: 7px 5px 0; cursor: pointer; overflow: hidden; background: url(../img/bg.png) 0 0 no-repeat; }
+        #foucsBox .foucsButton img { display: none; cursor: pointer; border-width: 0px; vertical-align: middle; width: 100px; height: 56px; }
+    #foucsBox .lBtn { float: left; }
+        #foucsBox .lBtn span { float: left; background-position: 0 -90px; }
+    #foucsBox .rBtn { float: right; }
+        #foucsBox .rBtn span { float: right; background-position: -30px -90px; }
+    #foucsBox .btnHover { width: 146px; background: #408ED6; overflow: hidden; }
+        #foucsBox .btnHover img { display: inline; }
+
+
+.m1lfour{ overflow:hidden;}
+.m1lfourmain{ overflow:hidden; background:#f1f1f1}
+.m1lfourmain ul{ padding-left:20px; float:left; width:330px; border-bottom:2px solid #ececec; height:100px; padding-top:5px; }
+.m1lfourmain ul li{overflow:hidden; width:320px;}
+.m1lfourmain ul li.li1{ margin-bottom:10px;height:20px; line-height:20px;}
+.m1lfourmain ul li.li2{ background:url(../img/dai.jpg) no-repeat; text-indent:30px; height:60px; line-height:30px;font-weight:bold; font-size:20px;}
+.m1lfourmain ul li.li2 a{ color:#2b5c96;}
+
+.m1lfive{ overflow:hidden;}
+.m2r32{ padding-left:20px;overflow:hidden; width:704px; margin:8px 0;}
+.m2r32 dl{ overflow:hidden; width:704px;}
+.m2r32 dl dt{ float:right;}
+.m2r32 dl dt a img{ width:211px; height:155px;}
+.m2r32 dl dd{ width:450px; float:left; margin-left:15px; display:inline;overflow:hidden;  }
+.m2r32 dl dd.dd1{  height:30px; line-height:30px; font-weight:bold; font-size:16px;}
+.m2r32 dl dd.dd1 a{ color:#56749f;}
+.m2r32 dl dd.dd2{ height:100px; line-height:20px;}
+.m2r32 dl dd.dd2 a{ color:#000;}
+
+.m2r5main{ overflow:hidden; padding-left:20px;}
+.m2r5main dl{ overflow:hidden; width:330px; border-bottom:2px solid #ececec; float:left; padding:5px 0; margin-right:22px;}
+.m2r5main dl dt{ float:left;}
+.m2r5main dl dt a img{ width:70px; height:70px;}
+.m2r5main dl dd{ width:240px; float:left; margin-left:15px; display:inline;overflow:hidden;  }
+.m2r5main dl dd.dd1{  height:30px; line-height:30px; font-weight:bold; font-size:16px;}
+.m2r5main dl dd.dd1 a{ color:#56749f;}
+.m2r5main dl dd.dd2{ height:40px; line-height:20px;}
+.m2r5main dl dd.dd2 a{ color:#000;}
+
+
+
+
+
+.m1r{ float:left; width:230px; margin-left:6px;display:inline; overflow:hidden;}
+.m1rone{ overflow:hidden;}
+.m1ronetit{ background:#281b21; height:30px; line-height:30px; padding-left:10px; color:#FFF;}
+
+.m1ronemain{ overflow:hidden;}
+.m1ronem{ overflow:hidden; padding-left:13px;border-bottom:2px solid #ececec; padding:10px 0;}
+.m1ronemtit{ height:30px; line-height:30px; overflow:hidden; font-size:16px; color:#7f2271; padding-left:10px;}
+.m1ronem dl{ overflow:hidden;}
+.m1ronem dl dt a img{ width:80px; height:70px;}
+.m1ronem dl dt{ float:left;}
+.m1ronem dl dd{ float:left; height:72px; line-height:18px; overflow:hidden; margin-left:6px; width:144px;}
+
+.m1rtwo a img{ width:230px; height:129px;}
+
+.m1rthree{ overflow:hidden; padding-top:10px;}
+.m1rthreemain{ margin-bottom:10px;}
+.m1rthreemain dl{ margin-top:10px;}
+.m1rthreemain dl dt{ width:230px;}
+.m1rthreemain dl dt a img{ width:230px; height:103px;}
+.m1rthreemain dl dd{height:20px; line-height:20px; overflow:hidden; color:#db5031;}
+.m1rthreemain dl dd.dd1 a{ color:#000;}
+
+
+/*m3*/
+.m2r2main{ overflow:hidden; padding-top:10px; padding-left:10px; }
+.m2r2mainl{ float:left; overflow:hidden; width:492px;}
+.m2r2mainl1{ overflow:hidden; background:#f6f7f6;margin-bottom:10px;}
+.m2r2mainl1tit{ height:20px; line-height:20px; background:url(../img/dian.jpg) no-repeat 0 6px; padding-bottom:6px; text-indent:16px;}
+.m2r2mainl1 dl dt a img{ width:154px; height:129px;}
+.m2r2mainl1 dl{ overflow:hidden; padding-bottom:20px;}
+.m2r2mainl1 dl dt{ float:left;}
+.m2r2mainl1 dl dd{ float:left; margin-left:8px; display:inline; width:320px;overflow:hidden;  }
+.m2r2mainl1 dl dd.dd1{ height:30px; line-height:30px; font-weight:bold; font-size:16px;}
+.m2r2mainl1 dl dd.dd1 a{ color:#56749f;}
+.m2r2mainl1 dl dd.dd2{height:80px; line-height:20px;}
+.m2r2mainl1 dl dd.dd2 a{ color:#000;}
+
+.m2r2mainr{ float:left; width:208px; margin-left:20px; display:inline;}
+.m2r2mainr dl dt a img{ width:190px; height:114px;}
+.m2r2mainr dl{ overflow:hidden;}
+.m2r2mainr dl dd{width:208px;overflow:hidden;  }
+.m2r2mainr dl dd.dd1{ height:60px; line-height:30px; font-weight:bold; font-size:16px;}
+.m2r2mainr dl dd.dd1 a{ color:#56749f;}
+.m2r2mainr dl dd.dd2{height:160px; line-height:20px;}
+.m2r2mainr dl dd.dd2 a{ color:#000;}
+
+
+/**bottom*/
+.bottom{ overflow:hidden; margin-top:10px;}
+.bottom dl{ overflow:hidden; float:left; width:180px; margin: 5px 6px;}
+.bottom dl dt{ float:left;}
+.bottom dl dt a img{ width:80px; height:80px;}
+.bottom dl dd{ float:left; margin-left:10px; width:90px;height:40px; line-height:20px; overflow:hidden; font-weight:bold;}
+.bottom dl dd a{ color:#56749f;}
+
+.last a img{ width:960px; height:108px; margin-top:10px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

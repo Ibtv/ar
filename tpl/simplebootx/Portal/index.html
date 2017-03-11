@@ -1,0 +1,2353 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+    <title>{$site_name}</title>
+	<tc_include file="Public:header" />
+    <link href="__TMPL__Public/css/index.css" rel="stylesheet">
+    </head>
+<body>
+	<tc_include file="Public:main" />
+<div id="wrap" class="arab">
+<div id="container">
+    <div class="mask"></div>
+    <div class="row1-arab">
+        <php>
+        $ar_hits=sp_sql_posts('field:tid,post_title,post_excerpt,smeta;limit:1;order:post_hits asc');
+        </php>
+        <foreach name="ar_hits" item="hits">
+        <php>
+            $smeta=json_decode($hits['smeta'],true);
+        </php>
+            <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="row1-arab-img1 zhezhao" src="data/upload/{$smeta.thumb}" alt="{$hits.post_title}" title="{$hits.post_title}"></a>
+            <a class="row1-arab-a1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_excerpt}</a>
+            <a class="row1-arab-a2" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">more >></a>
+        </foreach>
+         <div class="arab-out arab-out_p">
+            <div class="arab_circle">
+                <a class="s" onmouseover="arabtitle(this,'arabtitle')">الأخبار</a>
+                <a class="" onmouseover="arabtitle(this,'arabtitle')">التجارة الدولية</a>
+                <a class="" onmouseover="arabtitle(this,'arabtitle')">الإستثمار الدولى</a>
+                <a class="" onmouseover="arabtitle(this,'arabtitle')">علوم وتكنولوجيا</a>
+                <a class="" onmouseover="arabtitle(this,'arabtitle')">السفر</a>
+                <a class="" onmouseover="arabtitle(this,'arabtitle')">ثقافة وفنون</a>
+                <a class="" onmouseover="arabtitle(this,'arabtitle')">مقابلات</a>
+            </div>
+            <div id="arabtitle" class="arab-cont">
+            <php>
+                $ar_date=sp_sql_posts('field:tid,post_title,post_excerpt,smeta;limit:7;order:post_date desc');
+                $a=0;
+                </php>
+                <foreach name="ar_date" item="date">
+                <php>
+                    $a++;
+                    $smeta=json_decode($date['smeta'],true);
+                </php>
+                 <div name="arabtitle" <php> if($a == 1){echo 'class="row2-arab-c block"';}else{echo 'class="row2-arab-c unblock"';}</php>>
+
+                    <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}" class="row1-arab-bt">{$date.post_excerpt}</a>
+                    <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img src="data/upload/{$smeta.thumb}" alt="{$date.post_title}" title="{$date.post_title}"></a>
+                </div>
+              </foreach>
+            </div>
+        </div>
+    </div>
+    <div class="row2-arab">
+        <div class="row2-arab-t">
+            <a class="row2-rab-t1" href="{:u('list/index',array('id'=>110))}">الأخبار</a>
+            <a class="row2-rab-t2" href="{:u('list/index',array('id'=>110))}"><</a>
+        </div>
+        <div class="row2-arab-h">
+                    <a class="s" onmouseover="arab1(this,'arab1')" href="{:u('list/index',array('id'=>111))}" title="آخر الأخبار">آخر الأخبار</a>
+                    <a class=""  onmouseover="arab1(this,'arab1')" href="{:u('list/index',array('id'=>112))}" title="الصين">الصين</a>
+                    <a class=""  onmouseover="arab1(this,'arab1')" href="{:u('list/index',array('id'=>113))}" title="آسيا والمحيط الهندي">آسيا والمحيط الهندي</a>
+                    <a class=""  onmouseover="arab1(this,'arab1')" href="{:u('list/index',array('id'=>114))}" title="الشرق الأوسط">الشرق الأوسط</a>
+                    <a class=""  onmouseover="arab1(this,'arab1')" href="{:u('list/index',array('id'=>115))}" title="أوروبا وروسيا">أوروبا وروسيا</a>
+                    <a class=""  onmouseover="arab1(this,'arab1')" href="{:u('list/index',array('id'=>116))}" title="الأمريكتين">الأمريكتين</a>
+                    <a class=""  onmouseover="arab1(this,'arab1')" href="{:u('list/index',array('id'=>117))}" title="إفريقيا">إفريقيا</a>
+                    <a class=""  onmouseover="arab1(this,'arab1')" href="{:u('list/index',array('id'=>118))}" title="المنظمات الإقتصادية">المنظمات الإقتصادية</a>
+        </div>
+        <div id="arab1">
+            <div name="arab1" class="row2-arab-c block">
+            <php>
+             $gjsx_hits=sp_sql_posts('cid:111;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="gjsx_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+           </foreach>
+            <div class="row2-arab-c-3">
+            <php>
+             $gjsx_hits=sp_sql_posts('cid:111;field:tid,post_title,post_excerpt,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="gjsx_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+              </div>
+            </div>
+            <div name="arab1" class="row2-arab-c unblock">
+            <php>
+             $zg_hits=sp_sql_posts('cid:112;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="zg_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+           </foreach>
+            <div class="row2-arab-c-3">
+            <php>
+             $zg_hits=sp_sql_posts('cid:112;field:tid,post_title,post_excerpt,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="zg_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+              </div>
+            </div>
+            <div name="arab1" class="row2-arab-c unblock">
+                 <php>
+             $yt_hits=sp_sql_posts('cid:113;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="yt_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+           </foreach>
+            <div class="row2-arab-c-3">
+            <php>
+             $yt_hits=sp_sql_posts('cid:113;field:tid,post_title,post_excerpt,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="yt_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+              </div>
+            </div>
+            <div name="arab1" class="row2-arab-c unblock">
+            <php>
+             $oz_hits=sp_sql_posts('cid:114;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="oz_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+           </foreach>
+            <div class="row2-arab-c-3">
+            <php>
+             $oz_hits=sp_sql_posts('cid:114;field:tid,post_title,post_excerpt,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="oz_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+              </div>
+            </div>
+            <div name="arab1" class="row2-arab-c unblock">
+                 <php>
+             $els_hits=sp_sql_posts('cid:115;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="els_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+           </foreach>
+            <div class="row2-arab-c-3">
+            <php>
+             $els_hits=sp_sql_posts('cid:115;field:tid,post_title,post_excerpt,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="els_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+              </div>
+            </div>
+            <div name="arab1" class="row2-arab-c unblock">
+            <php>
+             $lm_hits=sp_sql_posts('cid:116;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="lm_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+           </foreach>
+            <div class="row2-arab-c-3">
+            <php>
+             $lm_hits=sp_sql_posts('cid:116;field:tid,post_title,post_excerpt,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="lm_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+              </div>
+            </div>
+            <div name="arab1" class="row2-arab-c unblock">
+                 <php>
+             $fz_hits=sp_sql_posts('cid:117;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="fz_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+           </foreach>
+            <div class="row2-arab-c-3">
+            <php>
+             $fz_hits=sp_sql_posts('cid:117;field:tid,post_title,post_excerpt,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="fz_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+              </div>
+            </div>
+            <div name="arab1" class="row2-arab-c unblock">
+            <php>
+             $gjjj_hits=sp_sql_posts('cid:118;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="gjjj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+           </foreach>
+            <div class="row2-arab-c-3">
+            <php>
+             $gjjj_hits=sp_sql_posts('cid:118;field:tid,post_title,post_excerpt,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="gjjj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+              </div>
+            </div>
+        </div>
+        <div class="row2-arab-b">
+            <div class="row2-arab-b_frbox">
+                <img class="row2-arab-b_frBtnL prev" src="__TMPL__/Public/images/leftbtn.png"/>
+                <div class="row2-arab-frul">
+                    <ul id="row2-arab-frul">
+                    <php>
+                     $zjxw_date=sp_sql_posts('cid:111,112,113,114,115,116,117,118;field:tid,post_title,smeta;limit:5;order:post_date desc');
+                   </php>
+                     <foreach name="zjxw_date" item="date">
+                     <php>
+                        $smeta=json_decode($date['smeta'],true);
+                    </php>
+                        <li class="ffff">
+                            <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">
+                                <img src="data/upload/{$smeta.thumb}" alt="{$date.post_title}" title="{$date.post_title}"/>
+                            </a>
+                            <div class="row2-arab-zhe">
+                                <div class="row2-arab-hover">
+                                    <div class="row2-arab-zhe_p">
+                                        <h3>
+                                           <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a> </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </foreach>
+                    </ul>
+                </div>
+                <img class="row2-arab-b_frBtnR next" src="__TMPL__/Public/images/rightbtn.png"/>
+            </div>
+        </div>
+    </div>
+    <div class="row2-arab">
+        <div class="row2-arab-t">
+            <a class="row2-rab-t1" href="{:u('list/index',array('id'=>120))}">التجارة الدولية</a>
+            <a class="row2-rab-t2" href="{:u('list/index',array('id'=>120))}"><</a>
+        </div>
+        <div class="row2-arab-h">
+            <a class="s" onmouseover="arab2(this,'arab2')" href="{:u('list/index',array('id'=>121))}">أخبار التجارة</a>
+            <a class=""  onmouseover="arab2(this,'arab2')" href="{:u('list/index',array('id'=>122))}">التعاون الدولى</a>
+            <a class=""  onmouseover="arab2(this,'arab2')" href="{:u('list/index',array('id'=>123))}">كبرى الشركات</a>
+            <a class=""  onmouseover="arab2(this,'arab2')" href="{:u('list/index',array('id'=>124))}"> المعارض التجارية</a>
+        </div>
+        <div id="arab2">
+            <div name="arab2" class="row2-arab-c block">
+             <php>
+             $myzx_hits=sp_sql_posts('cid:121;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="myzx_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $myzx_hits=sp_sql_posts('cid:121;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="myzx_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                   <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+                </div>
+             <php>
+             $myzx_date=sp_sql_posts('cid:121;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="myzx_date" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                        <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                        <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                        <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab2" class="row2-arab-c unblock">
+                 <php>
+             $dbhz_hits=sp_sql_posts('cid:122;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="dbhz_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $dbhz_hits=sp_sql_posts('cid:122;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="dbhz_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                   <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+                </div>
+             <php>
+             $dbhz_date=sp_sql_posts('cid:122;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="dbhz_date" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                        <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                        <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                        <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab2" class="row2-arab-c unblock">
+                 <php>
+             $kgqy_hits=sp_sql_posts('cid:123;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="kgqy_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $kgqy_hits=sp_sql_posts('cid:123;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="kgqy_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                   <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+                </div>
+             <php>
+             $kgqy_date=sp_sql_posts('cid:123;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="kgqy_date" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                        <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                        <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                        <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab2" class="row2-arab-c unblock">
+                 <php>
+             $zhxx_hits=sp_sql_posts('cid:124;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="zhxx_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $zhxx_hits=sp_sql_posts('cid:124;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="zhxx_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                   <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+                </div>
+             <php>
+             $zhxx_date=sp_sql_posts('cid:124;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="zhxx_date" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                        <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                        <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                        <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+        </div>
+    </div>
+    <div class="row2-arab">
+        <div class="row2-arab-t">
+            <a class="row2-rab-t1" href="{:u('list/index',array('id'=>130))}">الإستثمار الدولى</a>
+            <a class="row2-rab-t2" href="{:u('list/index',array('id'=>130))}"><</a>
+        </div>
+        <div class="row2-arab-h">
+            <a class="s" onmouseover="arab3(this,'arab3')" href="{:u('list/index',array('id'=>131))}">أخبار الإستثمار</a>
+            <a class=""  onmouseover="arab3(this,'arab3')" href="{:u('list/index',array('id'=>132))}">آفاق الإستثمار</a>
+            <a class=""  onmouseover="arab3(this,'arab3')" href="{:u('list/index',array('id'=>133))}">الإندماج والإستحواذ</a>
+            <a class=""  onmouseover="arab3(this,'arab3')" href="{:u('list/index',array('id'=>134))}"> رؤوس أموال</a>
+            <a class=""  onmouseover="arab3(this,'arab3')" href="{:u('list/index',array('id'=>135))}"> رؤية الخبراء</a>
+        </div>
+        <div id="arab3">
+            <div name="arab3" class="row2-arab-c block">
+            <php>
+             $tzsy_hits=sp_sql_posts('cid:131;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="tzsy_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $tzsy_hits=sp_sql_posts('cid:131;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="tzsy_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                   <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+                </div>
+             <php>
+             $tzsy_date=sp_sql_posts('cid:131;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="tzsy_date" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                        <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                        <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                        <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab3" class="row2-arab-c unblock">
+                 <php>
+             $tzzx_hits=sp_sql_posts('cid:132;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="tzzx_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $tzzx_hits=sp_sql_posts('cid:132;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="tzzx_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                   <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+                </div>
+             <php>
+             $tzzx_date=sp_sql_posts('cid:132;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="tzzx_date" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                        <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                        <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                        <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab3" class="row2-arab-c unblock">
+                 <php>
+             $bgcz_hits=sp_sql_posts('cid:133;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="bgcz_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $bgcz_hits=sp_sql_posts('cid:133;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="bgcz_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                   <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+                </div>
+             <php>
+             $bgcz_date=sp_sql_posts('cid:133;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="bgcz_date" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                        <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                        <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                        <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab3" class="row2-arab-c unblock">
+                 <php>
+             $qqrz_hits=sp_sql_posts('cid:134;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="qqrz_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $qqrz_hits=sp_sql_posts('cid:134;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="qqrz_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                   <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+                </div>
+             <php>
+             $qqrz_date=sp_sql_posts('cid:134;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="qqrz_date" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                        <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                        <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                        <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab3" class="row2-arab-c unblock">
+                 <php>
+             $zjsd_hits=sp_sql_posts('cid:135;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="zjsd_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $zjsd_hits=sp_sql_posts('cid:135;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="zjsd_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                   <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+                </div>
+             <php>
+             $zjsd_date=sp_sql_posts('cid:135;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="zjsd_date" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                        <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                        <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                        <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+        </div>
+    </div>
+    <div class="row2-arab">
+        <div class="row2-arab-t">
+            <a class="row2-rab-t1" href="{:u('list/index',array('id'=>140))}">علوم وتكنولوجيا</a>
+            <a class="row2-rab-t2" href="{:u('list/index',array('id'=>140))}"><</a>
+        </div>
+        <div class="row2-arab-h">
+            <a class="s" onmouseover="arab4(this,'arab4')" href="{:u('list/index',array('id'=>141))}" title="آخر الاخبار">آخر الاخبار</a>
+            <a class=""  onmouseover="arab4(this,'arab4')" href="{:u('list/index',array('id'=>142))}" title="الإقتصادية">الإقتصادية</a>
+            <a class=""  onmouseover="arab4(this,'arab4')" href="{:u('list/index',array('id'=>143))}" title="إختراعات">إختراعات</a>
+            <a class=""  onmouseover="arab4(this,'arab4')" href="{:u('list/index',array('id'=>144))}" title="البيئة"> البيئة</a>
+            <a class=""  onmouseover="arab4(this,'arab4')" href="{:u('list/index',array('id'=>145))}" title="صحة">صحة</a>
+        </div>
+        <div id="arab4">
+            <div name="arab4" class="row2-arab-c block">
+            <php>
+             $kjqy_hits=sp_sql_posts('cid:141;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="kjqy_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $kjqy_hits=sp_sql_posts('cid:141;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="kjqy_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                   <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+                </div>
+            </div>
+            <div name="arab4" class="row2-arab-c unblock">
+                 <php>
+             $itsj_hits=sp_sql_posts('cid:142;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="itsj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $itsj_hits=sp_sql_posts('cid:142;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="itsj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                   <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+                </div>
+            </div>
+            <div name="arab4" class="row2-arab-c unblock">
+                 <php>
+             $zl_hits=sp_sql_posts('cid:143;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="zl_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $zl_hits=sp_sql_posts('cid:143;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="zl_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                   <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+                </div>
+            </div>
+            <div name="arab4" class="row2-arab-c unblock">
+                 <php>
+             $stkj_hits=sp_sql_posts('cid:144;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="stkj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $stkj_hits=sp_sql_posts('cid:144;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="stkj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                   <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+                </div>
+            </div>
+            <div name="arab4" class="row2-arab-c unblock">
+            <php>
+             $yxjk_hits=sp_sql_posts('cid:145;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="yxjk_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $yxjk_hits=sp_sql_posts('cid:145;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="yxjk_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                   <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>
+                </div>
+            </div>
+        </div>
+        <div class="row2-arab-b">
+            <div class="row2-arab-b_frbox">
+                <img class="row2-arab-b_frBtnL prev" src="__TMPL__/Public/images/leftbtn.png"/>
+                <div class="row2-arab-frul">
+                    <ul id="row2-arab-frul">
+                 <php>
+                 $kj_date=sp_sql_posts('cid:141,142,143,144,145;field:tid,post_title,smeta;limit:5;order:post_date desc');
+               </php>
+                 <foreach name="kj_date" item="date">
+                 <php>
+                    $smeta=json_decode($date['smeta'],true);
+                </php>
+                        <li class="ffff">
+                            <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">
+                                <img src="data/upload/{$smeta.thumb}" alt="{$date.post_title}" title="{$date.post_title}"/>
+                            </a>
+                            <div class="row2-arab-zhe">
+                                <div class="row2-arab-hover">
+                                    <div class="row2-arab-zhe_p">
+                                        <h3>
+                                           <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a> 
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                </foreach>
+                    </ul>
+                </div>
+                <img class="row2-arab-b_frBtnR next" src="__TMPL__/Public/images/rightbtn.png"/>
+            </div>
+        </div>
+    </div>
+    <div class="row2-arab">
+        <div class="row2-arab-t">
+            <a class="row2-rab-t1" href="{:u('list/index',array('id'=>150))}">السفر</a>
+            <a class="row2-rab-t2" href="{:u('list/index',array('id'=>150))}"><</a>
+        </div>
+        <div class="row2-arab-h">
+            <a class="s" onmouseover="arab5(this,'arab5')" href="{:u('list/index',array('id'=>151))}">معالم الجذب</a>
+            <a class=""  onmouseover="arab5(this,'arab5')" href="{:u('list/index',array('id'=>152))}">الطبيعة</a>
+            <a class=""  onmouseover="arab5(this,'arab5')" href="{:u('list/index',array('id'=>153))}">اشهر الاطعمة</a>
+            <a class=""  onmouseover="arab5(this,'arab5')" href="{:u('list/index',array('id'=>154))}">عادات الشعوب</a>
+            <a class=""  onmouseover="arab5(this,'arab5')" href="{:u('list/index',array('id'=>155))}">دليل السفر</a>
+        </div>
+        <div id="arab5">
+            <div name="arab5" class="row2-arab-c block">
+            <php>
+             $msgj_hits=sp_sql_posts('cid:151;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="msgj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                         <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+            <php>
+             $msgj_hits=sp_sql_posts('cid:152;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="msgj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                     <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                     <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+                 </div>
+            </foreach>
+             <php>
+             $msgj_date=sp_sql_posts('cid:151;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="msgj_date" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                     <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                     <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                     <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab5" class="row2-arab-c unblock">
+                 <php>
+             $zrfg_hits=sp_sql_posts('cid:152;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="zrfg_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                         <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+            <php>
+             $zrfg_hits=sp_sql_posts('cid:152;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="zrfg_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                     <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                     <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+                 </div>
+            </foreach>
+             <php>
+             $zrfg_date=sp_sql_posts('cid:152;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="zrfg_date" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                     <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                     <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                     <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab5" class="row2-arab-c unblock">
+                 <php>
+             $sjms_hits=sp_sql_posts('cid:153;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="sjms_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                         <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+            <php>
+             $sjms_hits=sp_sql_posts('cid:153;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="sjms_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                     <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                     <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+                 </div>
+            </foreach>
+             <php>
+             $sjms_date=sp_sql_posts('cid:153;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="sjms_date" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                     <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                     <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                     <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab5" class="row2-arab-c unblock">
+                 <php>
+             $ftrq_hits=sp_sql_posts('cid:154;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="ftrq_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                         <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+            <php>
+             $ftrq_hits=sp_sql_posts('cid:154;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="ftrq_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                     <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                     <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+                 </div>
+            </foreach>
+             <php>
+             $ftrq_date=sp_sql_posts('cid:154;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="ftrq_date" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                     <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                     <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                     <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab5" class="row2-arab-c unblock">
+                 <php>
+             $glts_hits=sp_sql_posts('cid:155;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="glts_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                         <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+            <php>
+             $glts_hits=sp_sql_posts('cid:155;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="glts_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                     <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                     <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+                 </div>
+            </foreach>
+             <php>
+             $glts_date=sp_sql_posts('cid:155;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="glts_date" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                     <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                     <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                     <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+        </div>
+    </div>
+    <div class="row3-arab">
+        <div class="row2-arab-t">
+            <a class="row2-rab-t1" href="{:u('list/index',array('id'=>160))}">ثقافة وفنون</a>
+            <a class="row2-rab-t2"><</a>
+        </div>
+        <div class="row2-arab-h">
+            <a class="s" onmouseover="arab6(this,'arab6')" href="{:u('list/index',array('id'=>161))}">فنون</a>
+            <a class=""  onmouseover="arab6(this,'arab6')" href="{:u('list/index',array('id'=>162))}">لوحات</a>
+            <a class=""  onmouseover="arab6(this,'arab6')" href="{:u('list/index',array('id'=>163))}">ثقافة</a>
+            <a class=""  onmouseover="arab6(this,'arab6')" href="{:u('list/index',array('id'=>165))}"> تعليم</a>
+        </div>
+        <div id="arab6">
+            <div name="arab6" class="row2-arab-c block">
+             <php>
+             $ys_hits=sp_sql_posts('cid:161;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="ys_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $ys_hits=sp_sql_posts('cid:161;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="ys_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                     <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>  
+              </div>
+            </div>
+            <div name="arab6" class="row2-arab-c unblock">
+                <php>
+             $mjsh_hits=sp_sql_posts('cid:162;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="mjsh_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $mjsh_hits=sp_sql_posts('cid:162;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="mjsh_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                     <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>  
+              </div>
+            </div>
+            <div name="arab6" class="row2-arab-c unblock">
+                <php>
+             $wh_hits=sp_sql_posts('cid:163;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="wh_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $wh_hits=sp_sql_posts('cid:163;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="wh_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                     <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>  
+              </div>
+            </div>
+            <div name="arab6" class="row2-arab-c unblock">
+                <php>
+             $jy_hits=sp_sql_posts('cid:165;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="jy_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $jy_hits=sp_sql_posts('cid:165;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="jy_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                     <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+            </foreach>  
+              </div>
+            </div>
+        </div>
+        <div class="row2-arab-b2">
+            <div id="bookrack">
+             <php>
+             $wh_date=sp_sql_posts('cid:161,162,163,165;field:tid,post_title,smeta;limit:5;order:post_date desc');
+           </php>
+             <foreach name="wh_date" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"><span>{$date.post_title}</span></a>
+            </foreach>
+        </div>
+        </div>
+    </div>
+    <div class="row2-arab">
+        <div class="row2-arab-t">
+            <a class="row2-rab-t1" href="{:u('list/index',array('id'=>170))}">مقابلات</a>
+            <a class="row2-rab-t2"><</a>
+        </div>
+        <div class="row2-arab-h">
+            <a class="s"  onmouseover="arab7(this,'arab7')" href="{:u('list/index',array('id'=>172))}" title="سياسيون">سياسيون</a>
+            <a class=""  onmouseover="arab7(this,'arab7')" href="{:u('list/index',array('id'=>173))}" title="اقتصاديون">اقتصاديون</a>
+            <a class=""  onmouseover="arab7(this,'arab7')" href="{:u('list/index',array('id'=>174))}" title="علماء"> علماء</a>
+            <a class=""  onmouseover="arab7(this,'arab7')" href="{:u('list/index',array('id'=>175))}" title="فنانون"> فنانون</a>
+            <a class=""  onmouseover="arab7(this,'arab7')" href="{:u('list/index',array('id'=>176))}" title="رجال اعمال"> رجال اعمال</a>
+            <a class="" onmouseover="arab7(this,'arab7')" href="{:u('list/index',array('id'=>171))}" title="حصريا">حصريا</a>
+        </div>
+        <div id="arab7">
+
+            <div name="arab7" class="row2-arab-c block">
+                <php>
+             $zy_hits=sp_sql_posts('cid:172;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="zy_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+             <php>
+             $zy_hits=sp_sql_posts('cid:172;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="zy_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+
+                </div>
+            </foreach>
+             <php>
+             $zy_hits=sp_sql_posts('cid:172;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="zy_hits" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                    <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                    <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                    <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab7" class="row2-arab-c unblock">
+                <php>
+             $jjxj_hits=sp_sql_posts('cid:173;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="jjxj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+             <php>
+             $jjxj_hits=sp_sql_posts('cid:173;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="jjxj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+
+                </div>
+            </foreach>
+             <php>
+             $jjxj_hits=sp_sql_posts('cid:173;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="jjxj_hits" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                    <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                    <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                    <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab7" class="row2-arab-c unblock">
+                <php>
+             $kxj_hits=sp_sql_posts('cid:174;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="kxj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+             <php>
+             $kxj_hits=sp_sql_posts('cid:174;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="kxj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+
+                </div>
+            </foreach>
+             <php>
+             $kxj_hits=sp_sql_posts('cid:174;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="kxj_hits" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                    <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                    <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                    <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab7" class="row2-arab-c unblock">
+                <php>
+             $ysj_hits=sp_sql_posts('cid:175;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="ysj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+             <php>
+             $ysj_hits=sp_sql_posts('cid:175;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="ysj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+
+                </div>
+            </foreach>
+             <php>
+             $ysj_hits=sp_sql_posts('cid:175;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="ysj_hits" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                    <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                    <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                    <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab7" class="row2-arab-c unblock">
+                <php>
+             $qyj_hits=sp_sql_posts('cid:176;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="qyj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+             <php>
+             $qyj_hits=sp_sql_posts('cid:176;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="qyj_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+
+                </div>
+            </foreach>
+             <php>
+             $qyj_hits=sp_sql_posts('cid:176;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="qyj_hits" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                    <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                    <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                    <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+                        <div name="arab7" class="row2-arab-c unblock">
+            <php>
+             $btzf_hits=sp_sql_posts('cid:171;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="btzf_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+             <php>
+             $btzf_hits=sp_sql_posts('cid:171;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="btzf_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+
+                </div>
+            </foreach>
+             <php>
+             $btzf_hits=sp_sql_posts('cid:171;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="btzf_hits" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                    <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                    <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                    <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+        </div>
+    </div>
+    <div class="row2-arab">
+        <div class="row2-arab-t">
+            <a class="row2-rab-t1" href="{:u('list/index',array('id'=>180))}">دليل الاعمال</a>
+            <a class="row2-rab-t2" href="{:u('list/index',array('id'=>180))}"><</a>
+        </div>
+        <div class="row2-arab-h">
+            <a class="s" onmouseover="arab8(this,'arab8')" href="{:u('list/index',array('id'=>181))}" title="سياسات & قوانين">سياسات & قوانين</a>
+            <a class=""  onmouseover="arab8(this,'arab8')" href="{:u('list/index',array('id'=>182))}" title="نظرة اقليمية">نظرة اقليمية</a>
+            <a class=""  onmouseover="arab8(this,'arab8')" href="{:u('list/index',array('id'=>184))}" title="تقاليد الاعمال">تقاليد الاعمال</a>
+            <a class=""  onmouseover="arab8(this,'arab8')" href="{:u('list/index',array('id'=>185))}" title="مفاوضات">مفاوضات</a>
+            <a class=""  onmouseover="arab8(this,'arab8')" href="{:u('list/index',array('id'=>186))}" title="اجراءات العمل">اجراءات العمل</a>
+            <a class=""  onmouseover="arab8(this,'arab8')" href="{:u('list/index',array('id'=>183))}" title="تأشيرات">تأشيرات</a>
+        </div>
+        <div id="arab8">
+            <div name="arab8" class="row2-arab-c block">
+            <php>
+             $zcfg_hits=sp_sql_posts('cid:181;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="zcfg_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+             <php>
+             $zcfg_hits=sp_sql_posts('cid:181;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="zcfg_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+
+                </div>
+            </foreach>
+             <php>
+             $zcfg_hits=sp_sql_posts('cid:181;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="zcfg_hits" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                    <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                    <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                    <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab8" class="row2-arab-c unblock">
+                <php>
+             $qygk_hits=sp_sql_posts('cid:182;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="qygk_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+             <php>
+             $qygk_hits=sp_sql_posts('cid:182;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="qygk_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+
+                </div>
+            </foreach>
+             <php>
+             $qygk_hits=sp_sql_posts('cid:182;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="qygk_hits" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                    <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                    <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                    <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            
+            <div name="arab8" class="row2-arab-c unblock">
+                <php>
+             $swly_hits=sp_sql_posts('cid:184;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="swly_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+             <php>
+             $swly_hits=sp_sql_posts('cid:184;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="swly_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+
+                </div>
+            </foreach>
+             <php>
+             $swly_hits=sp_sql_posts('cid:184;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="swly_hits" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                    <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                    <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                    <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab8" class="row2-arab-c unblock">
+                <php>
+             $swtp_hits=sp_sql_posts('cid:185;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="swtp_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+             <php>
+             $swtp_hits=sp_sql_posts('cid:185;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="swtp_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+
+                </div>
+            </foreach>
+             <php>
+             $swtp_hits=sp_sql_posts('cid:185;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="swtp_hits" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                    <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                    <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                    <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab8" class="row2-arab-c unblock">
+                <php>
+             $mysw_hits=sp_sql_posts('cid:186;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="mysw_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+             <php>
+             $mysw_hits=sp_sql_posts('cid:186;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="mysw_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+
+                </div>
+            </foreach>
+             <php>
+             $mysw_hits=sp_sql_posts('cid:186;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="mysw_hits" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                    <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                    <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                    <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+            <div name="arab8" class="row2-arab-c unblock">
+                <php>
+             $qzfw_hits=sp_sql_posts('cid:183;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="qzfw_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+             <php>
+             $qzfw_hits=sp_sql_posts('cid:183;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="qzfw_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <div class="row2-arab-c-3">
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" class="row2-arab-c-3t">{$hits.post_title}</a>
+
+                </div>
+            </foreach>
+             <php>
+             $qzfw_hits=sp_sql_posts('cid:183;field:tid,post_title,post_excerpt,smeta;limit:2;order:post_date desc');
+            </php>
+             <foreach name="qzfw_hits" item="date">
+             <php>
+                $smeta=json_decode($date['smeta'],true);
+            </php>
+                <div class="row2-arab-c-4">
+                    <h2><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a></h2>
+                    <h3><a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_excerpt}</a></h3>
+                    <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$date['post_title']}"  title="{$date['post_title']}"></a>
+                </div>
+            </foreach>
+            </div>
+        </div>
+    </div>
+    <div class="row2-arab">
+        <div class="row2-arab-t">
+            <a class="row2-rab-t1" href="{:u('list/index',array('id'=>190))}">فرص</a>
+            <a class="row2-rab-t2" href="{:u('list/index',array('id'=>190))}"><</a>
+        </div>
+        <div class="row2-arab-h">
+            <a class="s" onmouseover="arab9(this,'arab9')" href="{:u('list/index',array('id'=>191))}">دعم</a>
+            <a class=""  onmouseover="arab9(this,'arab9')" href="{:u('list/index',array('id'=>192))}">شراء</a>
+            <a class=""  onmouseover="arab9(this,'arab9')" href="{:u('list/index',array('id'=>193))}">مناقصات</a>
+            <a class=""  onmouseover="arab9(this,'arab9')" href="{:u('list/index',array('id'=>194))}"> توكيلات</a>
+        </div>
+        <div id="arab9">
+            <div name="arab9" class="row2-arab-c block">
+             <php>
+             $gyxx_hits=sp_sql_posts('cid:191;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="gyxx_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                       <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $gyxx_hits=sp_sql_posts('cid:191;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="gyxx_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a class="row2-arab-c-3t" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" >{$hits.post_title}</a>
+            </foreach>
+                </div>
+            </div>
+            <div name="arab9" class="row2-arab-c unblock">
+                <php>
+             $cgxx_hits=sp_sql_posts('cid:192;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+            </php>
+             <foreach name="cgxx_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                <ul>
+                    <li>
+                       <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-t2"> بن ع</a>
+                        <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" >{$hits.post_title}</a>
+                    </li>
+                </ul>
+            </foreach>
+                <div class="row2-arab-c-3">
+            <php>
+             $cgxx_hits=sp_sql_posts('cid:192;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+            </php>
+             <foreach name="cgxx_hits" item="hits">
+             <php>
+                $smeta=json_decode($hits['smeta'],true);
+            </php>
+                    <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                    <a class="row2-arab-c-3t" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" >{$hits.post_title}</a>
+            </foreach>
+                </div>
+            </div>
+            <div name="arab9" class="row2-arab-c unblock">
+                <php>
+                 $zbxx_hits=sp_sql_posts('cid:193;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+                </php>
+                 <foreach name="zbxx_hits" item="hits">
+                 <php>
+                    $smeta=json_decode($hits['smeta'],true);
+                </php>
+                    <ul>
+                        <li>
+                           <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                            <a class="row2-arab-c-t2"> بن ع</a>
+                            <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" >{$hits.post_title}</a>
+                        </li>
+                    </ul>
+                </foreach>
+                    <div class="row2-arab-c-3">
+                <php>
+                 $zbxx_hits=sp_sql_posts('cid:193;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+                </php>
+                 <foreach name="zbxx_hits" item="hits">
+                 <php>
+                    $smeta=json_decode($hits['smeta'],true);
+                </php>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-3t" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" >{$hits.post_title}</a>
+                </foreach>
+                    </div>
+            </div>
+            <div name="arab9" class="row2-arab-c unblock">
+                <php>
+                 $dljm_hits=sp_sql_posts('cid:194;field:tid,post_title,smeta;limit:2;order:post_hits asc');
+                </php>
+                 <foreach name="dljm_hits" item="hits">
+                 <php>
+                    $smeta=json_decode($hits['smeta'],true);
+                </php>
+                    <ul>
+                        <li>
+                           <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                            <a class="row2-arab-c-t2"> بن ع</a>
+                            <a class="row2-arab-c-t1" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}" >{$hits.post_title}</a>
+                        </li>
+                    </ul>
+                </foreach>
+                    <div class="row2-arab-c-3">
+                <php>
+                 $dljm_hits=sp_sql_posts('cid:194;field:tid,post_title,smeta;limit:3,1;order:post_hits asc');
+                </php>
+                 <foreach name="dljm_hits" item="hits">
+                 <php>
+                    $smeta=json_decode($hits['smeta'],true);
+                </php>
+                        <a href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}"><img class="zhezhao" src="data/upload/{$smeta['thumb']}" alt="{$hits['post_title']}"  title="{$hits['post_title']}"></a>
+                        <a class="row2-arab-c-3t" href="{:U('article/index',array('id'=>$hits['tid']))}" title="{$hits.post_title}">{$hits.post_title}</a>
+                </foreach>
+                    </div>
+            </div>
+        </div>
+        <div class="row2-arab-b">
+            <div class="row2-arab-b_frbox">
+                <img class="row2-arab-b_frBtnL prev" src="__TMPL__/Public/images/leftbtn.png"/>
+                <div class="row2-arab-frul">
+                    <ul id="row2-arab-frul">
+                    <php>
+                     $hqsj_date=sp_sql_posts('cid:191,192,193,194;field:tid,post_title,smeta;limit:5;order:post_date desc');
+                   </php>
+                     <foreach name="hqsj_date" item="date">
+                     <php>
+                        $smeta=json_decode($date['smeta'],true);
+                    </php>
+                        <li class="ffff">
+                            <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">
+                                <img src="data/upload/{$smeta.thumb}" alt="{$date.post_title}" title="{$date.post_title}"/>
+                            </a>
+                            <div class="row2-arab-zhe">
+                                <div class="row2-arab-hover">
+                                    <div class="row2-arab-zhe_p">
+                                        <h3>
+                                           <a href="{:U('article/index',array('id'=>$date['tid']))}" title="{$date.post_title}">{$date.post_title}</a> 
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </foreach>
+                    </ul>
+                </div>
+                <img class="row2-arab-b_frBtnR next" src="__TMPL__/Public/images/rightbtn.png"/>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<tc_include file="Public:links"/>
+<tc_include file="Public:footer"/>
+<tc_include file="Public:scripts"/>
+    <script>
+    $(function(){
+        ;(function($){
+            $.fn.totop=function(opt){
+                var scrolling=false;
+                return this.each(function(){
+                    var $this=$(this);
+                    $(window).scroll(function(){
+                        if(!scrolling){
+                            var sd=$(window).scrollTop();
+                            if(sd>100){
+                                $this.fadeIn();
+                            }else{
+                                $this.fadeOut();
+                            }
+                        }
+                    });
+
+                    $this.click(function(){
+                        scrolling=true;
+                        $('html, body').animate({
+                            scrollTop : 0
+                        }, 500,function(){
+                            scrolling=false;
+                            $this.fadeOut();
+                        });
+                    });
+                });
+            };
+        })(jQuery);
+
+        $("#backtotop").totop();
+
+
+    });
+
+    function nofind(){
+    var img=event.srcElement;
+    img.src="../images/default_tupian1.png";
+    img.onerror=null;
+    }
+
+
+
+
+
+
+</script>
+    <script>
+        function getNames(obj,name,tij)
+        {
+            var p = document.getElementById(obj);
+            var plist = p.getElementsByTagName(tij);
+            var rlist = new Array();
+            for(i=0;i<plist.length;i++)
+            {
+                if(plist[i].getAttribute("name") == name)
+                {
+                    rlist[rlist.length] = plist[i];
+                }
+            }
+            return rlist;
+        }
+
+        function arab1(obj,name)
+        {
+            var p = obj.parentNode.getElementsByTagName("a");
+            var p1 = getNames(name,"arab1","div");
+            for(i=0;i<p1.length;i++)
+            {
+                if(obj==p[i])
+                {
+                    p[i].className = "s";
+                    p1[i].className = "row2-arab-c block";
+                }
+                else
+                {
+                    p[i].className = "";
+                    p1[i].className = "row2-arab-c unblock";
+                }
+            }
+        }
+        function arab2(obj,name)
+        {
+            var p = obj.parentNode.getElementsByTagName("a");
+            var p1 = getNames(name,"arab2","div");
+            for(i=0;i<p1.length;i++)
+            {
+                if(obj==p[i])
+                {
+                    p[i].className = "s";
+                    p1[i].className = "row2-arab-c block";
+                }
+                else
+                {
+                    p[i].className = "";
+                    p1[i].className = "row2-arab-c unblock";
+                }
+            }
+        }
+        function arab3(obj,name)
+        {
+            var p = obj.parentNode.getElementsByTagName("a");
+            var p1 = getNames(name,"arab3","div");
+            for(i=0;i<p1.length;i++)
+            {
+                if(obj==p[i])
+                {
+                    p[i].className = "s";
+                    p1[i].className = "row2-arab-c block";
+                }
+                else
+                {
+                    p[i].className = "";
+                    p1[i].className = "row2-arab-c unblock";
+                }
+            }
+        }
+        function arab4(obj,name)
+        {
+            var p = obj.parentNode.getElementsByTagName("a");
+            var p1 = getNames(name,"arab4","div");
+            for(i=0;i<p1.length;i++)
+            {
+                if(obj==p[i])
+                {
+                    p[i].className = "s";
+                    p1[i].className = "row2-arab-c block";
+                }
+                else
+                {
+                    p[i].className = "";
+                    p1[i].className = "row2-arab-c unblock";
+                }
+            }
+        }
+        function arab5(obj,name)
+        {
+            var p = obj.parentNode.getElementsByTagName("a");
+            var p1 = getNames(name,"arab5","div");
+            for(i=0;i<p1.length;i++)
+            {
+                if(obj==p[i])
+                {
+                    p[i].className = "s";
+                    p1[i].className = "row2-arab-c block";
+                }
+                else
+                {
+                    p[i].className = "";
+                    p1[i].className = "row2-arab-c unblock";
+                }
+            }
+        }
+        function arab6(obj,name)
+        {
+            var p = obj.parentNode.getElementsByTagName("a");
+            var p1 = getNames(name,"arab6","div");
+            for(i=0;i<p1.length;i++)
+            {
+                if(obj==p[i])
+                {
+                    p[i].className = "s";
+                    p1[i].className = "row2-arab-c block";
+                }
+                else
+                {
+                    p[i].className = "";
+                    p1[i].className = "row2-arab-c unblock";
+                }
+            }
+        }
+        function arab7(obj,name)
+        {
+            var p = obj.parentNode.getElementsByTagName("a");
+            var p1 = getNames(name,"arab7","div");
+            for(i=0;i<p1.length;i++)
+            {
+                if(obj==p[i])
+                {
+                    p[i].className = "s";
+                    p1[i].className = "row2-arab-c block";
+                }
+                else
+                {
+                    p[i].className = "";
+                    p1[i].className = "row2-arab-c unblock";
+                }
+            }
+        }
+        function arab8(obj,name)
+        {
+            var p = obj.parentNode.getElementsByTagName("a");
+            var p1 = getNames(name,"arab8","div");
+            for(i=0;i<p1.length;i++)
+            {
+                if(obj==p[i])
+                {
+                    p[i].className = "s";
+                    p1[i].className = "row2-arab-c block";
+                }
+                else
+                {
+                    p[i].className = "";
+                    p1[i].className = "row2-arab-c unblock";
+                }
+            }
+        }
+        function arab9(obj,name)
+        {
+            var p = obj.parentNode.getElementsByTagName("a");
+            var p1 = getNames(name,"arab9","div");
+            for(i=0;i<p1.length;i++)
+            {
+                if(obj==p[i])
+                {
+                    p[i].className = "s";
+                    p1[i].className = "row2-arab-c block";
+                }
+                else
+                {
+                    p[i].className = "";
+                    p1[i].className = "row2-arab-c unblock";
+                }
+            }
+        }
+         function arabtitle(obj,name)
+        {
+            var p = obj.parentNode.getElementsByTagName("a");
+            var p1 = getNames(name,"arabtitle","div");
+            for(i=0;i<p1.length;i++)
+            {
+                if(obj==p[i])
+                {
+                    p[i].className = "s";
+                    p1[i].className = "row2-arab-c block";
+                }
+                else
+                {
+                    p[i].className = "";
+                    p1[i].className = "row2-arab-c unblock";
+                }
+            }
+        }
+
+
+
+    </script>
+   
+    <script type="text/javascript">
+        var Bookrack = function(a, b, c, e) {
+            this.scale = e || 0.4;
+            this.x = b || 461;
+            this.y = c || 360;
+            this.border = 0;
+            this.init(a);
+            this.exec(Math.ceil(Math.random() * this.imgs.length))
+        };
+        Bookrack.prototype = {
+            init: function(a) {
+                this.width = a.clientWidth - 2 * this.x * this.scale;
+                a.style.position = "relative";
+                a.style.height = this.y + "px";
+                this.imgs = a.getElementsByTagName("a");
+                var b = this,
+                        c = document.createElement("span"),
+                        e,
+                        d;
+                this.each(function(a, g) {
+                    a.style.position = "absolute";
+                    a.style.bottom = "0";
+                    a.style.left = this.width * (g / this.imgs.length)+ "px";
+                    a.setAttribute("dir", g);
+                    d = a.getElementsByTagName("img")[0].getAttribute("alt").split("|");
+                    e = c.cloneNode(!0);
+
+                    a.onmouseover = function() {
+                        b.exec(this.getAttribute("dir"))
+                    }
+                })
+            },
+            each: function(a) {
+                for (var b = 0,
+                             c; c = this.imgs[b++];) a.call(this, c, b, this.imgs.length)
+            },
+
+            exec: function(a) {
+                this.each(function(b, c, e, d, f) {
+                    b.getElementsByTagName("span")[0].style.display = "none";
+                    c == a && (b.getElementsByTagName("span")[0].style.display = "block");
+                    d = Math.min(c / a, a / c);
+                    f = Math.sin(90 * (Math.PI / 180) * d) * (1 - this.scale);
+                    b.style.zIndex = Math.ceil(1E4 * f);
+
+                    b.style.width = 461 + "px";
+                    b.style.height = 260 + "px";
+
+                })
+            }
+        };
+        new Bookrack(document.getElementById('bookrack'), 461, 208);
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            /* 图片滚动效果 */
+            $(".row2-arab-b_frbox").slide({
+                titCell: "",
+                mainCell: ".row2-arab-frul ul",
+                autoPage: true,
+                effect: "leftLoop",
+                autoPlay: true,
+                vis: 3
+            });
+
+            /* 鼠标悬停图片效果 */
+            $(".row2-arab-hover").css("top", $('.ffff').eq(0).height());
+            $("li").mouseout(function (e) {
+                if ((e.pageX < $(this).offset().left || e.pageX > ($(this).offset().left + $(this).width())) || (e.pageY < $(this).offset().top || e.pageY > ($(this).offset().top + $(this).height()))) {
+                    $(this).find('.row2-arab-hover').hide().stop().animate({ top: '123px' }, { queue: false, duration: 123 });
+                    return false;
+                }
+
+            });
+            $('.ffff').mouseover(function (event) {
+                $(this).find('.row2-arab-hover').show().stop().animate({ top: '123px' }, { queue: false, duration: 123 });
+                return false;
+            });
+
+        });
+    </script>
+    <script type="text/javascript" src="__TMPL__Public/js/jquery.SuperSlide2.js"></script>
+
+</body>
+</html>

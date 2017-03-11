@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>{$site_name}</title>
+<meta name="keywords" content="{$site_seo_keywords}" />
+<meta name="description" content="{$site_seo_description}">
+<meta name="author" content="ThinkCMF">
+<tc_include file="Public:head" />
+</head>
+
+<body class="body-white">
+	<tc_include file="Public:nav" />
+
+	<div class="container tc-main">
+		<div class="row">
+			<div class="span6 offset3">
+				<h2 class="text-center"> تسجيل دخول المستخدم </h2>
+				<form class="form-horizontal J_ajaxForms" action="{:U('user/login/dologin')}" method="post">
+					<div class="control-group">
+						<label class="control-label" for="input_username"> رقم الحساب </label>
+						<div class="controls">
+							<input type="text" id="input_username" name="username" placeholder=" الرجاء إدخال اسم المستخدم  أو  البريد الإلكتروني " class="span3">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_password"> كلمة السر </label>
+						<div class="controls">
+							<input type="password" id="input_password" name="password" placeholder=" الرجاء إدخال كلمة السر " class="span3">
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_verify"> رمز التحقق </label>
+						<div class="controls">
+							<input type="text" id="input_verify" name="verify"  placeholder=" الرجاء  إدخال رمز التحقق " class="span3">
+						</div>
+					</div>
+					<div class="control-group">
+						<div class="controls">
+							{:sp_verifycode_img('code_len=4&font_size=15&width=100&height=35&charset=1234567890')}
+						</div>
+					</div>
+					<div class="control-group">
+						<label class="control-label" for="input_repassword"></label>
+						<div class="controls">
+							<label class="checkbox persistent"><input type="checkbox" name="terms" value="1"> أنا أوافق 
+								<a href="#"> محتوى الموقع  شروط الخدمة </a></label>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_repassword"></label>
+						<div class="controls">
+							<button class="btn btn-primary J_ajax_submit_btn" type="submit"> تحديد </button>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="input_repassword"></label>
+						<div class="controls">
+							<ul class="inline">
+								<li><a href="{:U('user/register/index')}"> سجل الآن </a></li>
+								<li><a href="{:U('user/login/forgot_password')}"> نسيت كلمة السر </a></li>
+							</ul>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<tc_include file="Public:footer" />
+
+	</div>
+	<!-- /container -->
+
+	<tc_include file="Public:scripts" />
+</body>
+</html>
